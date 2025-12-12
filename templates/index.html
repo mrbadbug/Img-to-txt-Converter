@@ -12,7 +12,6 @@
     <h1 class="title">AI-Powered Text Recognition</h1>
     <p class="subtitle">Upload your handwritten notes and get an editable Word document instantly.</p>
 
-    <!-- Drag & Drop Upload Area -->
     <div id="drop-area" class="drop-area">
       <p>Drag & drop your image here, or</p>
       <label for="fileInput" class="btn btn-primary btn-upload">
@@ -24,7 +23,6 @@
       <input type="file" id="fileInput" name="file" accept="image/png, image/jpeg" hidden />
     </div>
 
-    <!-- Preview Section -->
     <div id="previewContainer" class="preview-container" style="display:none;">
       <img id="imgPreview" alt="Image Preview" />
       <button id="clearBtn" class="btn btn-secondary btn-clear" title="Clear Image">
@@ -35,7 +33,6 @@
       </button>
     </div>
 
-    <!-- Action Buttons -->
     <button id="processBtn" class="btn btn-success" disabled>Upload & Process</button>
 
     <div id="message" class="message"></div>
@@ -56,7 +53,6 @@
     const message = document.getElementById('message');
     const downloadLink = document.getElementById('downloadLink');
 
-    // Helper: show preview and enable process button
     function showPreview(file) {
       const reader = new FileReader();
       reader.onload = (e) => {
@@ -69,7 +65,6 @@
       reader.readAsDataURL(file);
     }
 
-    // Clear preview and reset form
     function clearPreview() {
       fileInput.value = '';
       imgPreview.src = '';
@@ -79,7 +74,6 @@
       downloadLink.innerHTML = '';
     }
 
-    // File input change
     fileInput.addEventListener('change', () => {
       if (fileInput.files.length) {
         showPreview(fileInput.files[0]);
@@ -88,10 +82,8 @@
       }
     });
 
-    // Clear button
     clearBtn.addEventListener('click', clearPreview);
 
-    // Drag & Drop handlers
     ['dragenter', 'dragover'].forEach(eventName => {
       dropArea.addEventListener(eventName, (e) => {
         e.preventDefault();
@@ -121,7 +113,6 @@
       }
     });
 
-    // Upload & process button
     processBtn.addEventListener('click', async () => {
       if (!fileInput.files.length) {
         message.textContent = 'Please select an image file to upload.';

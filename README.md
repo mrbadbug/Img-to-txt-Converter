@@ -1,4 +1,4 @@
-**Img-to-txt Converter**
+# Img-to-txt Converter
 This is a simple tool that converts images into text using optical character recognition (OCR).
 You provide image files, the tool reads them, and outputs the extracted text.
 
